@@ -6,15 +6,15 @@ export const metadata = {
     description: "This is a blog on travel and food place near the area.",
 };
 
+/* TODO: make a favicon for this blog */
 export default function MainPages({ children }) {
-
     return (
-        <body>
+        <>
             <Navbar />
             <main className="min-h-[calc(100vh-302px)]">
                 {children}
             </main>
             <Footer />
-        </body>
+        </>
     );
 }

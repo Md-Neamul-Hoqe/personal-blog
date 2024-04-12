@@ -24,10 +24,10 @@ const HomeBanner = () => {
                 </div>
                 <div className='flex-1'>
                     <h1 className="text-5xl font-bold">Welcome to <span className='text-cyan-200 italic'>{blogger}&apos;s</span> Blog</h1>
-                    <div className="py-6">
+
+                    <div className="py-6 text-base">
                         <TypeWrite textContents={typewriterContents} />
                     </div>
-
 
                     <HomeBtn />
                 </div>

@@ -1,30 +1,117 @@
 import Image from 'next/image';
+// import recentPostFeatureImage from '@/assets/travel-banner-bg-02.jpg'
+// import recentPostFeatureImage from '@/assets/travel-banner-bg.jpg'
 import recentPostFeatureImage from '@/assets/recent-blog-post-feature-image.png'
-import DetailsPost from '../atoms/detailsPost';
+import LinkToDetailsPost from '../atoms/linkToDetailsPost';
+
+const recentPost = {
+    _id: '1',
+    author: "Md. Neamul Hoqe",
+    featuredImage: recentPostFeatureImage,
+    title: 'Title goes here',
+    date: "Sunday, 1 Jan 2023",
+    description: [
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis necessitatibus fugit placeat accusantium quam ad veritatis. Fuga, placeat praesentium molestias illo modi provident quas! Commodi similique ipsum ullam nam voluptates.",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis necessitatibus fugit placeat accusantium quam ad veritatis. Fuga, placeat praesentium molestias illo modi provident quas! Commodi similique ipsum ullam nam voluptates.",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis necessitatibus fugit placeat accusantium quam ad veritatis. Fuga, placeat praesentium molestias illo modi provident quas! Commodi similique ipsum ullam nam voluptates.",
+    ],
+    tags: [ 'food', 'food', 'food' ]
+}
 
 const RecentPost = () => {
     return (
-        <section className='flex gap-6'>
-            <aside className="flex-1">
-                <Image width="100" height={300} src={recentPostFeatureImage.src} className='object-cover min-w-full' alt='Feature image of the recent post' />
-            </aside>
-
-            <aside className="flex-1 space-y-3">
-                <h1 className='text-xl text-cyan-200 capitalize'>Title goes here</h1>
-
-                <div className='flex gap-3 flex-wrap'>
-                    <button type='button' className='rounded-2xl text-xs px-4 border lowercase leading-4'>food</button>
-                    <button type='button' className='rounded-2xl text-xs px-4 border lowercase leading-4'>food</button>
-                    <button type='button' className='rounded-2xl text-xs px-4 border lowercase leading-4'>food</button>
+        <section className='flex flex-col gap-3 md:gap-6 mb-10'>
+            <section className='grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-6 items-stretch'>
+                <aside>
+                    <div className="card bordered rounded-none gap-5 bg-base-100 h-full">
+                        <figure><Image className='object-center min-w-full' src={recentPost.featuredImage?.src} alt="Shoes" width={200} height={250} /></figure>
+                        <div className="card-body p-0">
+                            <small className="text-secondary" >{recentPost?.author} {recentPost?.date}</small>
+                            <h2 className="card-title text-cyan-50">
+                                {recentPost?.title}
+                                <div><LinkToDetailsPost detailsLink={`/blog/${recentPost?._id}`} /></div>
+                            </h2>
+                            <p>
+                                {
+                                    recentPost?.description?.length
+                                        ? recentPost?.description?.[ 0 ].length > 100
+                                            ? recentPost?.description?.[ 0 ].slice(0, 100) + '...' : recentPost?.description?.[ 0 ] : null
+                                }
+                            </p>
+                            {/* <p>{recentPost?.descriptions?.length ? recentPost?.description?.[ 0 ].length > 100 ? recentPost?.description?.[ 0 ].slice(0, 100) + '...' : recentPost?.description?.[ 0 ] : null} <LinkToDetailsPost detailsLink={`/${recentPost?.type}/${recentPost?._id}`} /></p> */}
+                            <div className="card-actions">
+                                {recentPost?.tags?.length > 0 && recentPost?.tags.map((T, idx) => <div key={idx} className="badge badge-outline">{T}</div>)}
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <aside className='flex flex-col gap-3 md:gap-6'>
+                    <div className="card md:card-side bordered rounded-none gap-5 bg-base-100 shadow-xl">
+                        <figure><Image className='object-center h-full w-full' src={recentPost.featuredImage?.src} alt="Shoes" width={200} height={250} /></figure>
+                        <div className="card-body p-0">
+                            <small className="text-secondary" >{recentPost?.author} {recentPost?.date}</small>
+                            <h2 className="card-title text-cyan-50">
+                                {recentPost?.title}
+                                <div><LinkToDetailsPost detailsLink={`/blog/${recentPost?._id}`} /></div>
+                            </h2>
+                            <p>
+                                {
+                                    recentPost?.description?.length
+                                        ? recentPost?.description?.[ 0 ].length > 100
+                                            ? recentPost?.description?.[ 0 ].slice(0, 100) + '...' : recentPost?.description?.[ 0 ] : null
+                                }
+                            </p>
+                            {/* <p>{recentPost?.descriptions?.length ? recentPost?.description?.[ 0 ].length > 100 ? recentPost?.description?.[ 0 ].slice(0, 100) + '...' : recentPost?.description?.[ 0 ] : null} <LinkToDetailsPost detailsLink={`/${recentPost?.type}/${recentPost?._id}`} /></p> */}
+                            <div className="card-actions">
+                                {recentPost?.tags?.length > 0 && recentPost?.tags.map((T, idx) => <div key={idx} className="badge badge-outline">{T}</div>)}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card md:card-side bordered rounded-none gap-5 bg-base-100 shadow-xl">
+                        <figure><Image className='object-center h-full w-full' src={recentPost.featuredImage?.src} alt="Shoes" width={200} height={250} /></figure>
+                        <div className="card-body p-0">
+                            <small className="text-secondary" >{recentPost?.author} {recentPost?.date}</small>
+                            <h2 className="card-title text-cyan-50">
+                                {recentPost?.title}
+                                <div><LinkToDetailsPost detailsLink={`/blog/${recentPost?._id}`} /></div>
+                            </h2>
+                            <p>
+                                {
+                                    recentPost?.description?.length
+                                        ? recentPost?.description?.[ 0 ].length > 100
+                                            ? recentPost?.description?.[ 0 ].slice(0, 100) + '...' : recentPost?.description?.[ 0 ] : null
+                                }
+                            </p>
+                            {/* <p>{recentPost?.descriptions?.length ? recentPost?.description?.[ 0 ].length > 100 ? recentPost?.description?.[ 0 ].slice(0, 100) + '...' : recentPost?.description?.[ 0 ] : null} <LinkToDetailsPost detailsLink={`/${recentPost?.type}/${recentPost?._id}`} /></p> */}
+                            <div className="card-actions">
+                                {recentPost?.tags?.length > 0 && recentPost?.tags.map((T, idx) => <div key={idx} className="badge badge-outline">{T}</div>)}
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+            <section>
+                <div className="card lg:card-side bordered rounded-none gap-5 md:gap-6 bg-base-100 shadow-xl">
+                    <figure><Image className='object-center h-full w-full' src={recentPost.featuredImage?.src} alt="Shoes" width={200} height={250} /></figure>
+                    <div className="card-body p-0">
+                        <small className="text-secondary" >{recentPost?.author} {recentPost?.date}</small>
+                        <h2 className="card-title text-cyan-50">
+                            {recentPost?.title}
+                            <div><LinkToDetailsPost detailsLink={`/blog/${recentPost?._id}`} /></div>
+                        </h2>
+                        <p>
+                            {
+                                recentPost?.description?.length
+                                    ? recentPost?.description?.[ 0 ].length > 100
+                                        ? recentPost?.description?.[ 0 ].slice(0, 100) + '...' : recentPost?.description?.[ 0 ] : null
+                            }
+                        </p>
+                        <div className="card-actions">
+                            {recentPost?.tags?.length > 0 && recentPost?.tags.map((T, idx) => <div key={idx} className="badge badge-outline">{T}</div>)}
+                        </div>
+                    </div>
                 </div>
-
-                <div className='space-y-2 mb-32'>
-                    <p className='text-base leading-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis necessitatibus fugit placeat accusantium quam ad veritatis. Fuga, placeat praesentium molestias illo modi provident quas! Commodi similique ipsum ullam nam voluptates.</p>
-                    <p className='text-base leading-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis necessitatibus fugit placeat accusantium quam ad veritatis. Fuga, placeat praesentium molestias illo modi provident quas! Commodi similique ipsum ullam nam voluptates.</p>
-                    <p className='text-base leading-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis necessitatibus fugit placeat accusantium quam ad veritatis. Fuga, placeat praesentium molestias illo modi provident quas! Commodi similique ipsum ullam nam voluptates.</p>
-                </div>
-                <DetailsPost detailsLink={'/'} />
-            </aside>
+            </section>
         </section>
     );
 };

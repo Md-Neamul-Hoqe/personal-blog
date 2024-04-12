@@ -1,5 +1,7 @@
 [
   {
+    "_id": "1",
+    "author": "Md. Neamul Hoqe",
     "title": "Delicious Pasta Carbonara",
     "subtitle": "A Classic Italian Dish with a Creamy Twist",
     "type": "food",
@@ -23,6 +25,8 @@
     "views": 850
   },
   {
+    "_id": "2",
+    "author": "Md. Neamul Hoqe",
     "title": "Sushi Delight: Exploring Japanese Cuisine",
     "subtitle": "Discover the Art of Sushi Making",
     "type": "food",
@@ -46,6 +50,8 @@
     "views": 920
   },
   {
+    "_id": "3",
+    "author": "Md. Neamul Hoqe",
     "title": "Exploring the Beauty of Kyoto",
     "subtitle": "Discover Serenity in Japan's Ancient Capital",
     "type": "travel",
